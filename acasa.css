@@ -1,0 +1,181 @@
+/*selectez tag-ul 'body'*/
+body{
+    margin:0;
+}
+
+/*clasele se vor selecta cu . si numele clasei respective*/
+.containerNavigatie{
+    text-align: center;
+    width: 100%; /*latimea meniului o sa fie cat tot ecranul*/
+    height: 80px;
+    background-color: bisque;
+    /*Link-ul pt generare umbra*/
+    /*https://www.cssmatic.com/box-shadow*/
+    box-shadow: 15px 15px 20px 0px rgba(207,104,52,0.5);
+}
+
+/*din clasa containerNavigatie selectez clasa meniu*/
+.containerNavigatie .meniu{
+    display:flex; /*proprietatea "display" cu valoarea "flex" schimba pozitionarea elementelor pe ecran afisand list item-urile pe acelasi rand*/
+    position: relative; /*meniul va tine cont de celelalte elemente din jurul sau*/
+
+}
+
+/*din clasa meniu selectez toate list item-urile*/
+.containerNavigatie .meniu li{
+    list-style:none; /*elimina formatarea standard de lista*/
+    font-size: 28px;
+    flex:1; /*fiecare dintre cele 3 parti din meniu vor ocupa spatiu in mod egal*/
+    padding:20px;
+}
+
+.containerNavigatie .meniu li a{
+    color:rgb(52, 50, 50);
+    text-decoration: none;
+    transition: color 0.3s ease; /*tranzitie pe proprietatea 'color', cu durata de 0.3 secunde si tipul de tranzitie 'ease'*/
+}
+
+/*:hover -> la trecerea cu mouse-ul peste elementul care are hover (li) se va schimba proprietatea dintre acolade*/
+.containerNavigatie .meniu li:hover a{
+    color:rgb(193, 13, 13);
+}
+
+/*Atunci cand suntem pe pagina 'Acasa' sa ramana culoarea textului din meniu diferita*/
+.containerNavigatie .meniu li:first-child a{
+    color:rgb(193, 13, 13); /*primul list item va avea culoarea textului din tag-ul a diferita*/
+}
+
+.containerNavigatie .meniu .linie{
+    height: 5px;
+    width: 40%;
+    background-color: rgb(193, 13, 13);
+    left:0; /*elementul se va pozitiona in partea stanga a ecranului*/
+    bottom:0; /*elem se va pozitiona in partea de jos a div-ului parinte 'meniu'*/
+    position: absolute; /*elementul cu clasa 'linie' tine cont doar de elementul parinte 'meniu'*/
+}
+
+/*:nth-child(2) -> din cele 3 list items, il voi selecta pe al 2lea*/
+/* ~ .linie -> selecteaza elementul cu clasa "linie" care se afla langa list item*/
+.containerNavigatie .meniu li:nth-child(2):hover ~ .linie{
+    left:30%;
+}
+
+.containerNavigatie .meniu li:nth-child(3):hover ~ .linie{
+    left:60%;
+}
+
+
+.jumbotron{
+    height: 700px; /*inaltimea pozei*/
+    background: linear-gradient(rgba(240, 138, 70, 0.8),rgba(230, 71, 54, 0.5)),
+                url(https://source.unsplash.com/black-ford-mustang-gt-N9Pf2J656aQ);
+
+     background-size: cover;
+     background-repeat: no-repeat;   
+     
+     color:white;
+     text-align: center;
+     text-shadow: 2px 2px black;
+
+}
+
+@-webkit-keyframes culoare-masina{
+    0%, 100% { -webkit-filter: invert(20%) sepia(70%) saturate(3300%) hue-rotate(350deg) brightness(130%) contrast(100%);}
+    50%{ -webkit-filter: invert(100%) sepia(10%) saturate(500%) hue-rotate(220deg) brightness(100%) contrast(80%);}
+}
+
+.jumbotron .masina{
+    width:100px;
+    height:100px;
+    -webkit-animation: culoare-masina 3s infinite;
+}
+
+.continut-text{
+    margin: 5% 10%;
+}
+
+.sectiune_carduri{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sectiune_carduri h1{
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.lista_carduri{
+    display:flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+.element_card{
+    display:flex;
+    padding: 16px;
+    max-width: 50%;
+}
+
+.sectiune_carduri img{
+    max-width: 100%;
+    height:auto;
+}
+
+.sectiune_carduri .card{
+    display: flex;
+    box-shadow: 0 20px 40px -15px rgba(0,0,0,0.25);
+}
+
+.sectiune_carduri .btn{
+    padding: 14px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 400;
+    width: 100%;
+    background: transparent;
+    border: 1px solid black;
+}
+
+.continut_card{
+    padding: 16px;
+    background: linear-gradient(to bottom left, #759cbe, rgb(173, 220, 232));
+}
+
+.titlu_card{
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.text_card{
+    color: white;
+    font-size: 14px;
+    margin-bottom: 18px;
+    font-weight: 400;
+}
+
+.sectiune_carduri .btn:hover{
+    background-color: #759cbe;
+    color:white;
+}
+
+/*modificarea aspectului scrollbar-ului*/
+::-webkit-scrollbar{
+    width: 15px;
+}
+
+/*partea mobila din scrollbar*/
+::-webkit-scrollbar-thumb{
+    background-color: rgb(235, 129, 42);
+}
+
+/*partea de fundal din scrollbar*/
+::-webkit-scrollbar-track{
+    background-color: antiquewhite;
+}
